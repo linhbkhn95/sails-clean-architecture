@@ -22,9 +22,10 @@ module.exports.routes = {
   '/': {
     view: 'pages/homepage'
   },
-
+  /************************ LIST API FOR AUTH *******************************/
   'POST /api/auth/login': 'auth/AuthController.login',
-  'POST /api/auth/register': 'auth/AuthController.register'
+  'POST /api/auth/register': 'auth/AuthController.register',
+  'GET /api/auth/me': 'auth/AuthController.getInfor'
 
   /***************************************************************************
    *                                                                          *

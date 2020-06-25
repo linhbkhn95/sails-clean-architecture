@@ -49,7 +49,7 @@ module.exports = {
         fullname
       );
       if (result.code !== OutputUtils.code.SUCCESS) {
-        return OutputUtils.errServer(res,'ERROR', result.errors);
+        return OutputUtils.errServer(res, 'ERROR', result.errors);
       }
       return OutputUtils.success(res, result.data);
 
@@ -57,7 +57,22 @@ module.exports = {
       console.log('error', error);
       return OutputUtils.errServer(res, 'System error', error.toString(), 500);
     }
-  }
+  },
+  getInfor: async (req, res) => {
+    try {
+      let user = req.user;
+      let result = await sails.helpers.auth.me(
+        user.username
+      );
 
+      if (result.code !== OutputUtils.code.SUCCESS) {
+        return OutputUtils.errServer(res, 'ERROR', result.errors);
+      }
+      return OutputUtils.success(res, result.data);
+    } catch (error) {
+
+      return OutputUtils.errServer(res, 'System error', error.toString(), 500);
+    }
+  }
 
 };

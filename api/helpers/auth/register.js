@@ -62,7 +62,14 @@ module.exports = {
       password,
       fullname
     }).fetch();
-    return exits.success(OutputUtils.success(user));
+    if (!user) {
+      exits.success(OutputUtils.objectError({
+        username: 'Username is existed!'
+      }));
+    }
+    let token = await sails.helpers.jwt.generate(username);
+
+    return exits.success(OutputUtils.objectSuccess(token));
 
     // If no users were found, trigger the `noUsersFound` exit.
 

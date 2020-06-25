@@ -56,8 +56,10 @@ module.exports = {
         password: 'Password was wrong!'
       }));
     }
-    return exits.success(OutputUtils.objectSuccess(user));
-
+    let resultGenerate = await sails.helpers.jwt.generate(username);
+    if (resultGenerate.code === OutputUtils.code.SUCCESS)
+      return exits.success(OutputUtils.objectSuccess(resultGenerate.data));
+    return exits.success(OutputUtils.objectError(resultGenerate.message));
   }
 
 

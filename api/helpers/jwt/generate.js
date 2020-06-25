@@ -1,4 +1,5 @@
 var OutputUtils = require('../../commons/OutputUtils')
+var jwt = require('jsonwebtoken')
 
 module.exports = {
   friendlyName: 'JSON web token',
@@ -38,25 +39,16 @@ module.exports = {
   fn: async (inputs, exits) => {
     // TODO
     const {
-      username,
-      password
+      username
     } = inputs;
 
-    let user = await User.findOne({
-      username
-    });
-    if (!user) {
-      return exits.success(OutputUtils.objectError({
-        username: 'User is not existed in system!'
-      }));
-    }
-    let checkPassword = await sails.helpers.password.compare(password, user.password);
-    if (!checkPassword) {
-      return exits.success(OutputUtils.objectError({
-        password: 'Password was wrong!'
-      }));
-    }
-    return exits.success(OutputUtils.objectSuccess(user));
+    var token = jwt.sign({
+      username: username
+    }, sails.config.jwtSecret, {
+      expiresIn: sails.config.jwtExpires
+    })
+
+    return exits.success(OutputUtils.objectSuccess(token));
 
   }
 
