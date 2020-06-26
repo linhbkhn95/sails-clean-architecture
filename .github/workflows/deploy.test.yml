@@ -20,6 +20,8 @@ jobs:
       steps:
         - name: Checkout branch to VM
           uses: actions/checkout@v1
+        - name : Install dependences
+          run: npm install
         - name: Run ESLint & Jest
           run: |
             npm run test
