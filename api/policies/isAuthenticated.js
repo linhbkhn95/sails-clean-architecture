@@ -11,13 +11,13 @@
 var OutputUtils = require('../commons/OutputUtils');
 module.exports = async function (req, res, next) {
 
-    try {
-        const resultAuthenticate = await sails.helpers.jwt.verify(req);
-        if (resultAuthenticate.code !== OutputUtils.code.SUCCESS) {
-            return OutputUtils.errServer(res, resultAuthenticate.errors, null, 401);
-        };
-        return next();
-    } catch (error) {
-        return OutputUtils.errServer(res, error.toString(), null, 500);
+  try {
+    const resultAuthenticate = await sails.helpers.jwt.verify(req);
+    if (resultAuthenticate.code !== OutputUtils.code.SUCCESS) {
+      return OutputUtils.errServer(res, resultAuthenticate.errors, null, 401);
     }
-}
+    return next();
+  } catch (error) {
+    return OutputUtils.errServer(res, error.toString(), null, 500);
+  }
+};

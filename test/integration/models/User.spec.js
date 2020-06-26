@@ -2,30 +2,30 @@
 
 var util = require('util');
 
-describe('User (model)', function () {
+describe('User (model)', () => {
 
-    describe('#findOne()', function () {
-        it('should return 1 users', function (done) {
-            User.findOne({
-                    username: 'linhtd'
-                })
-                .then(function (bestStudents) {
+  describe('#findOne()', () => {
+    it('should return 1 users', (done) => {
+      User.findOne({
+        username: 'linhtd'
+      })
+                .then((bestStudents) => {
 
-                    if (!bestStudents) {
-                        return done(new Error(
+                  if (!bestStudents) {
+                    return done(new Error(
                             'Should return exactly 1 users -- the users ' +
                             'from our test fixtures who are considered the "best".  ' +
                             'But instead, got: ' + util.inspect(bestStudents, {
-                                depth: null
+                              depth: null
                             }) + ''
-                        ));
-                    } //-•
+                    ));
+                  } //-•
 
-                    return done();
+                  return done();
 
                 })
                 .catch(done);
-        });
     });
+  });
 
 });

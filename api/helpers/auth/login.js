@@ -1,4 +1,4 @@
-var OutputUtils = require('../../commons/OutputUtils')
+var OutputUtils = require('../../commons/OutputUtils');
 
 module.exports = {
   friendlyName: 'User',
@@ -58,7 +58,7 @@ module.exports = {
     }
     let resultGenerate = await sails.helpers.jwt.generate(username);
     if (resultGenerate.code === OutputUtils.code.SUCCESS)
-      return exits.success(OutputUtils.objectSuccess(resultGenerate.data));
+    {return exits.success(OutputUtils.objectSuccess(resultGenerate.data));}
     return exits.success(OutputUtils.objectError(resultGenerate.message));
   }
 

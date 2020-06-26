@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-var OutputUtils = require('../../commons/OutputUtils')
+var OutputUtils = require('../../commons/OutputUtils');
 module.exports = {
 
 

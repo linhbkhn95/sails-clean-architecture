@@ -33,12 +33,6 @@ module.exports = {
       message
     });
   },
-  errorAdmin: function (res, message = 'Errors', errors = null, status = 200) {
-    return res.status(status).send({
-      success: false,
-      message
-    });
-  },
   objectError: function (errors, code = -1) {
     return {
       message: 'Errors',

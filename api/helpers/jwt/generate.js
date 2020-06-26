@@ -1,5 +1,5 @@
-var OutputUtils = require('../../commons/OutputUtils')
-var jwt = require('jsonwebtoken')
+var OutputUtils = require('../../commons/OutputUtils');
+var jwt = require('jsonwebtoken');
 
 module.exports = {
   friendlyName: 'JSON web token',
@@ -46,7 +46,7 @@ module.exports = {
       username: username
     }, sails.config.jwtSecret, {
       expiresIn: sails.config.jwtExpires
-    })
+    });
 
     return exits.success(OutputUtils.objectSuccess(token));
 

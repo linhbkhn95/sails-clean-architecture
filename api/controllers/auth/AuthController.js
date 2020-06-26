@@ -74,5 +74,4 @@ module.exports = {
       return OutputUtils.errServer(res, 'System error', error.toString(), 500);
     }
   }
-
 };

@@ -168,7 +168,7 @@ module.exports = {
     // n/a
 
   },
-  customToJSON: function (values) {
+  customToJSON: function () {
 
 
     return _.omit(this, ['password']);

@@ -15,7 +15,7 @@ before(function(done) {
     hooks: { grunt: false },
     log: { level: 'warn' },
 
-  }, function(err) {
+  }, (err) => {
     if (err) { return done(err); }
 
     // here you can load fixtures, etc.
@@ -26,11 +26,11 @@ before(function(done) {
 });
 
 // After all tests have finished...
-after(function(done) {
+after((done) => {
 
   // here you can clear fixtures, etc.
   // (e.g. you might want to destroy the records you created above)
-  console.log('start server----')
+  console.log('start server----');
   sails.lower(done);
 
 });

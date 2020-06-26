@@ -5,23 +5,9 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  giang.ngo: cac function helper cho log
  */
-var async = require('async');
-const SEPERATE = ',';
-const MAX_LOG_LENGTH = 250;
 var pidinfo = process.pid + '/' + process.ppid;
-var logPid = 'processid=' + pidinfo + ':';
 
-function builder(params, args) {
-  var logMsg = logPid;
-  logMsg += params;
-  if (args) {
-    for (var arg of args) {
-      logMsg += SEPERATE;
-      logMsg += arg ? JSON.stringify(arg).slice(0, MAX_LOG_LENGTH) : 'null';
-    }
-  }
-  return logMsg;
-}
+
 
 module.exports = {
   Add: function (params, ...args) {
