@@ -27,7 +27,7 @@ jobs:
             npm run test
         - name: Unit test api, flow
           run: |
-            npm test-flow
+            npm run test-flow
 
   # build:
   #   # Job name is Greeting
