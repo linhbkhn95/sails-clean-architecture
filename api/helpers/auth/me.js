@@ -32,9 +32,7 @@ module.exports = {
       username,
     } = inputs;
 
-    let user = await User.findOne({
-      username
-    });
+    let user = await UserService.findByUsername(username);
     if (!user) {
       return exits.success(OutputUtils.objectError({
         username: 'User is not existed in system!'

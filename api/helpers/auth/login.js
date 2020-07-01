@@ -42,9 +42,7 @@ module.exports = {
       password
     } = inputs;
 
-    let user = await User.findOne({
-      username
-    });
+    let user = await UserService.findByUsername(username);
     if (!user) {
       return exits.success(OutputUtils.objectError({
         username: 'User is not existed in system!'
@@ -57,8 +55,9 @@ module.exports = {
       }));
     }
     let resultGenerate = await sails.helpers.jwt.generate(username);
-    if (resultGenerate.code === OutputUtils.code.SUCCESS)
-    {return exits.success(OutputUtils.objectSuccess(resultGenerate.data));}
+    if (resultGenerate.code === OutputUtils.code.SUCCESS) {
+      return exits.success(OutputUtils.objectSuccess(resultGenerate.data));
+    }
     return exits.success(OutputUtils.objectError(resultGenerate.message));
   }
 

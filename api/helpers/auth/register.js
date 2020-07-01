@@ -57,7 +57,7 @@ module.exports = {
         username: 'Username is existed!'
       }));
     }
-    let user = await User.create({
+    let user = await UserService.create({
       username,
       password,
       fullname
