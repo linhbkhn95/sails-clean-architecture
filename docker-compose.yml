@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  sails-boilerplate-v1:
+    image: sails-boilerplate-v1:lastest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "1337:1337"
+    restart: always
