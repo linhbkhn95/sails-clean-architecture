@@ -13,7 +13,7 @@ describe('Auth (helper)', () => {
                   console.log(result);
                   if (result.code !== 0) {
                     return done(new Error(
-                            'Should return exactly 1 result success -- the users '
+                            'Should return exactly 1xx result success -- the users '
 
                     ));
                   } //-•
