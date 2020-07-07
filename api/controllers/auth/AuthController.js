@@ -24,7 +24,7 @@ module.exports = {
       return OutputUtils.success(res, result.data);
     } catch (error) {
       console.log('error', error);
-      return OutputUtils.errServer(res, 'System error', error.toString(), 500);
+      return OutputUtils.errServer(res, 'System errors', error.toString(), 500);
     }
   },
   /*
